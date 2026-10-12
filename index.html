@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Strict Anti-Indexing Header Loop -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noodp, noydir">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="yandex" content="noindex, nofollow, noarchive, nosnippet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Senior Applied Mathematician & Computational Physicist</title>
+
+    <style>
+        :root {
+            --bg-color: #f4f6f9;
+            --text-color: #212529;
+            --primary: #0f2b46;
+            --accent: #0077b6;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --math-bg: #f8fafc;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 70px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 { font-size: 2.8rem; margin-bottom: 10px; font-weight: 700; letter-spacing: -0.5px; }
+        header p { font-size: 1.25rem; opacity: 0.9; max-width: 800px; margin: 0 auto; font-weight: 300; }
+
+        .lang-switch-container { position: absolute; top: 20px; right: 20px; }
+        .lang-btn {
+            background-color: transparent; border: 2px solid white; color: white;
+            padding: 6px 14px; cursor: pointer; font-size: 0.85rem; font-weight: bold;
+            border-radius: 4px; transition: all 0.2s ease;
+        }
+        .lang-btn:hover { background-color: white; color: var(--primary); }
+
+        nav {
+            background-color: #0b1f33; position: sticky; top: 0; z-index: 1000;
+            text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        nav a {
+            color: white; text-decoration: none; padding: 18px 20px; display: inline-block;
+            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;
+        }
+        nav a:hover { background-color: var(--accent); }
+
+        .container { max-width: 1100px; margin: 50px auto; padding: 0 25px; }
+        section { margin-bottom: 70px; scroll-margin-top: 80px; }
+
+        h2 {
+            color: var(--primary); font-size: 2rem; margin-bottom: 25px;
+            border-bottom: 2px solid var(--border); padding-bottom: 12px;
+        }
+
+        .about-text { font-size: 1.15rem; color: #334155; max-width: 900px; }
+
+        .showcase-row {
+            display: grid; grid-template-columns: 1fr; gap: 35px;
+            margin-top: 30px; background: var(--card-bg);
+            border: 1px solid var(--border); border-radius: 8px; padding: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+        @media (min-width: 850px) {
+            .showcase-row { grid-template-columns: 1fr 1fr; align-items: center; }
+            .showcase-row.reverse { direction: rtl; }
+            .showcase-row.reverse .text-block { direction: ltr; }
+        }
+
+        .text-block h3 { color: var(--primary); font-size: 1.5rem; margin-bottom: 15px; }
+        .text-block ul { list-style: none; margin-bottom: 20px; }
+        .text-block li { margin-bottom: 12px; position: relative; padding-left: 20px; color: #475569; }
+        .text-block li::before { content: "■"; color: var(--accent); position: absolute; left: 0; font-size: 0.75rem; top: 2px; }
+
+        .media-block { background: #f8fafc; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; text-align: center; padding: 15px; }
+        .media-block img { max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .media-caption { font-size: 0.85rem; color: #64748b; margin-top: 10px; font-style: italic; display: block; }
+
+        details { background: var(--math-bg); border: 1px dashed #cbd5e1; border-radius: 6px; padding: 15px; margin-top: 15px; cursor: pointer; }
+        details[open] { cursor: default; }
+        summary { font-weight: 600; color: var(--accent); outline: none; user-select: none; }
+        .math-box { padding: 15px 0; overflow-x: auto; text-align: center; font-size: 1.1rem; color: var(--primary); }
+
+        /* Bulletproof Native HTML/CSS Math Typographic Engine Rules */
+        .math-box {
+            padding: 15px 0;
+            text-align: center;
+            color: var(--primary);
+            width: 100%;
+            /* Creates a clean swipe boundary container for small mobile screens */
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .math-render {
+            font-family: "Times New Roman", Times, serif;
+            font-style: italic;
+            font-size: 1.45rem;
+            display: inline-flex;
+            align-items: center;
+            /* Using min-content ensures terms never clip or wrap awkwardly on small viewports */
+            justify-content: flex-start;
+            min-width: min-content;
+            margin: 0 auto;
+            padding: 15px 10px;
+            color: #0f2b46;
+            letter-spacing: 0.5px;
+        }
+
+        /* Elegant custom scrollbar indicators for mobile swipeable equations */
+        .math-box::-webkit-scrollbar {
+            height: 4px;
+        }
+        .math-box::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .math-box::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 2px;
+        }
+
+        .math-render span { display: inline-block; white-space: nowrap; }
+        .math-frac {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            vertical-align: middle;
+            font-size: 1.1rem;
+            padding: 0 6px;
+            line-height: 1.05;
+        }
+        .math-num { border-bottom: 1.5px solid currentColor; width: 100%; text-align: center; padding-bottom: 2px; }
+        .math-den { width: 100%; text-align: center; padding-top: 2px; }
+
+        .math-stacked-den {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.95rem;
+            line-height: 1.1;
+            vertical-align: middle;
+            padding: 2px 0;
+        }
+
+        .math-subsup {
+            display: inline-flex;
+            flex-direction: column;
+            font-size: 0.8rem;
+            vertical-align: middle;
+            line-height: 1;
+            margin-left: 1px;
+            text-align: left;
+        }
+        .math-large { font-style: normal; font-size: 2.4rem; line-height: 1; font-weight: 300; padding: 0 4px; }
+
+        /* 📱 Dedicated Mobile Adaptation Rule */
+        @media (max-width: 600px) {
+            .math-render {
+                /* Gently scales down font sizing so long formulas fit natively on compact screens */
+                font-size: 1.1rem;
+            }
+            .math-large {
+                font-size: 1.8rem;
+            }
+            .math-frac {
+                font-size: 0.85rem;
+            }
+            .math-stacked-den {
+                font-size: 0.75rem;
+            }
+        }
+
+        .pub-list li {
+            background: var(--card-bg); border-left: 4px solid var(--accent);
+            padding: 20px; margin-bottom: 20px; list-style: none;
+            border-top: 1px solid var(--border); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); border-radius: 0 6px 6px 0;
+        }
+
+        .contact-info { text-align: center; background: var(--primary); color: white; padding: 50px 20px; border-radius: 8px; }
+        .contact-info a { color: #38bdf8; text-decoration: none; font-weight: bold; font-size: 1.3rem; }
+
+        footer { text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #64748b; border-top: 1px solid var(--border); }
+
+        html {
+                    scroll-behavior: smooth;
+                }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="lang-switch-container">
+        <button class="lang-btn" id="lang-toggle" onclick="toggleLanguage()">РУС</button>
+    </div>
+    <h1 class="lang-content" data-en="Dr. Gregory G. Vilensky" data-ru="Виленский Г.Г. <br>(к. ф.-м. н.)">Dr. Gregory G. Vilensky</h1>
+    <p class="lang-content" data-en="Applied Mathematician & Computational Physicist" data-ru="Прикладная математика и вычислительная физика">Applied Mathematician & Computational Physicist</p>
+</header>
+
+<nav>
+    <!-- Home / Top anchor button -->
+    <a href="#" class="lang-content" data-en="Home" data-ru="Главная">Home</a>
+
+    <a href="#about" class="lang-content" data-en="About" data-ru="О себе">About</a>
+    <a href="#expertise" class="lang-content" data-en="Expertise" data-ru="Направления">Expertise</a>
+    <a href="https://myworldtoosmall.github.io/MedAIEngine/" class="lang-content" data-en="Medical AI & RAG Hub" data-ru="Платформа Медицинского ИИ и RAG">ExpertiseMedical AI & RAG Hub</a>
+    <a href="https://myworldtoosmall.github.io/MedImage/" class="lang-content" data-en="3D Computer Vision in Medicine" data-ru="3D Компьютерноe Зрениe В Медицине">3D Computer Vision in Medicine</a>
+    <a href="#contact" class="lang-content" data-en="Contact" data-ru="Контакты">Contact</a>
+</nav>
+
+<div class="container">
+    <section id="about">
+        <h2 class="lang-content"
+            data-en="Executive Profile"
+            data-ru="Профессиональный Профиль">
+                Executive Profile
+        </h2>
+        <p class="about-text lang-content"
+           data-en="I specialize in transforming complex mathematical physics and artificial intelligence into secure, high-precision software solutions for the medical and MedTech industries. Backed by an international career in advanced research and development, I design next-generation technologies that enhance clinical capabilities and improve patient outcomes. My work focuses on three core pillars: building secure, completely offline AI assistants for clinical decision support, developing high-resolution 3D medical imaging and automated organ mapping tools, and creating advanced software simulations for non-invasive therapies like therapeutic ultrasound (HIFU). I bridge the gap between breakthrough scientific innovation and reliable, market-ready medical technology."
+           data-ru="Я специализируюсь на внедрении методов прикладной математической физики и искусственного интеллекта в безопасные и высокоточные программные решения для медицины и индустрии MedTech. Опираясь на международный опыт в сфере высокотехнологичных исследований и разработок, я создаю цифровые инструменты нового поколения, которые расширяют возможности врачей и повышают эффективность лечения. Моя деятельность сосредоточена на трех ключевых направлениях: разработка защищенных, полностью автономных ИИ-ассистентов для поддержки врачебных решений, проектирование систем высокоточной 3D-реконструкции и автоматического анализа медицинских изображений, а также программное моделирование неинвазивной терапии (включая фокусированный ультразвук высокой интенсивности — HIFU). Я соединяю академическую науку с надежными технологиями, готовыми к интеграции в реальное медицинское оборудование.">
+               I specialize in transforming complex mathematical physics and artificial intelligence into secure, high-precision software solutions for the medical and MedTech industries. Backed by an international career in advanced research and development, I design next-generation technologies that enhance clinical capabilities and improve patient outcomes. My work focuses on three core pillars: building secure, completely offline AI assistants for clinical decision support, developing high-resolution 3D medical imaging and automated organ mapping tools, and creating advanced software simulations for non-invasive therapies like therapeutic ultrasound (HIFU). I bridge the gap between breakthrough scientific innovation and reliable, market-ready medical technology.
+        </p>
+    <section id="expertise">
+        <h2 class="lang-content" data-en="Key Technical Deliverables"
+            data-ru="Ключевые технические компетенции">
+                Key Technical Deliverables
+        </h2>
+
+        <!-- PROJECT 0: Generative AI & RAG -->
+        <div class="showcase-row reverse">
+            <div class="text-block">
+                <h3 class="lang-content"
+                    data-en="Generative AI & RAG Engineering"
+                    data-ru="Генеративный ИИ и RAG-архитектуры">
+                        Generative AI & RAG Engineering
+                </h3>
+                <ul>
+                    <li class="lang-content"
+                        data-en="Architected end-to-end pipelines powered by LLMs, transformers, and vector databases to build expert clinical decision support systems (CDSS)."
+                        data-ru="Проектирование сквозных конвейеров на базе LLM, трансформеров и векторных баз данных для экспертных систем поддержки принятия решений.">
+                            Architected end-to-end pipelines powered by LLMs, transformers, and vector databases to build expert clinical decision support systems (CDSS).
+                    </li>
+                    <li class="lang-content"
+                        data-en="Engineered entirely to run locally on low-overhead hardware. To protect corporate IP weights and enforce strict privacy, the core model execution loop operates exclusively offline under a zero-trust architecture."
+                        data-ru="Оптимизация архитектуры для полностью локального развертывания на вычислительных узлах с жесткими аппаратными ограничениями. Запуск языковых моделей в закрытом контуре (offline zero-trust) для обеспечения конфиденциальности данных.">
+                            Engineered entirely to run locally on low-overhead hardware. To protect corporate IP weights and enforce strict privacy, the core model execution loop operates exclusively offline under a zero-trust architecture.
+                    </li>
+                </ul>
+            </div>
+            <div class="media-block">
+                <img src="slide0_MedAI.png" alt="3D imaging and CT reconstructions">
+                <!-- Combined the classes into one attribute and fixed the quotes -->
+                <div class="media-caption lang-content"
+                     data-en="Fig 1. Clinical AI environment with 3D visualization."
+                     data-ru="Рис 1. Клинический ИИ-комплекс с 3D-визуализацией.">
+                    Fig 1. Clinical AI environment with 3D visualization.
+                </div>
+            </div>
+
+        </div>
+
+
+            <!-- PROJECT 1: HIFU MEDICAL DEVICES -->
+            <div class="showcase-row">
+                <div class="text-block">
+                    <h3 class="lang-content"
+                        data-en="Medical Ultrasound & Therapeutics (HIFU)"
+                        data-ru="Терапевтический ультразвук высокой интенсивности (HIFU)">
+                            Medical Ultrasound & Therapeutics (HIFU)
+                    </h3>
+                    <ul>
+                        <li class="lang-content" data-en="Designed non-invasive modeling platforms for high-intensity focused ultrasound ablation targeting deep tumors without damaging surrounding tissue matrix elements."
+                            data-ru="Разработка теоретических моделей фокусированного ультразвука для неинвазивной деструкции глубоко расположенных опухолей без повреждения здоровых окружающих тканей.">
+                                Designed non-invasive modeling platforms for high-intensity focused ultrasound ablation targeting deep tumors without damaging surrounding tissue matrix elements.</li>
+                        <li class="lang-content" data-en="Solved non-linear sound propagation anomalies and acoustic dispersion profiles across highly heterogeneous soft anatomical structures." data-ru="Моделирование аномалий распространения звука и эффектов нелинейного поглощения энергии волны в сильно неоднородных биологических средах.">Solved non-linear sound propagation anomalies and acoustic dispersion profiles across highly heterogeneous soft anatomical structures.</li>
+                    </ul>
+                    <details>
+                        <summary class="lang-content" data-en="⚡ View Mathematical Framework" data-ru="⚡ Посмотреть математический аппарат">⚡ View Mathematical Framework</summary>
+                        <div class="equation">
+                            ∂<sub>θ</sub> { 2∂<sub>X</sub> P − ∂<sub>θ</sub> ( BP<sup>2</sup> + ∫₀<sup>∞</sup> (P<sup>r</sup>(τ) / τ) dτ ) } = Δ<sub>⊥</sub> P,
+                        </div>
+                        <div class="equation">
+                            ∂<sub>θ</sub> P<sup>r</sup> + ∂<sub>τ</sub> P<sup>r</sup> = σ(τ) ∂<sub>θ</sub> P,
+                            Δ<sub>⊥</sub> ≡ ∂<sup>2</sup>/∂y<sup>2</sup> + ∂<sup>2</sup>/∂z<sup>2</sup>.
+                        </div>
+                        <p class="lang-content" style="font-size:0.85rem; color:#475569;"
+                            data-en="Field equations for calculation anomalous acoustic absorption using fractional dynamics and memory-dependent structural parameters."
+                            data-ru="Уравнения, описывающие пространственно-временную эволюцию ультразвуковых пучков с учётом непрерывного спектра времён релаксации.">
+                                Field equations for calculation anomalous acoustic absorption using fractional dynamics and memory-dependent structural parameters.</p>
+                    </details>
+                </div>
+                <div class="media-block">
+                    <img src="slide3_devices.jpg" alt="Clinical Devices Overview">
+                    <div class="media-caption lang-content" data-en="Fig 1. Real-world medical hardware configurations employing automated acoustic modeling." data-ru="Рис 1. Конфигурации клинических устройств и систем планирования операций ультразвуковой терапии.">Fig 1. Real-world medical hardware configurations employing automated acoustic modeling.</div>
+                </div>
+            </div>
+
+            <!-- PROJECT 2: 3D imaging and CT reconstructions -->
+            <div class="showcase-row reverse">
+                <div class="text-block">
+                    <h3 class="lang-content"
+                        data-en="Advanced Computer Vision & 3D Imaging"
+                        data-ru="Компьютерное зрение и 3D-визуализация">
+                            Advanced Computer Vision & 3D Imaging</h3>
+                    <ul>
+                        <li class="lang-content"
+                            data-en="Building highly GPU-optimized heterogeneous C++ libraries for autosegmentation, 3D reconstruction, and automatic internal organ geometry correction using CT/MRI scans."
+                            data-ru="Создание высокопроизводительных GPU-оптимизированных библиотек на C++ для автоматической сегментации, 3D-реконструкции и геометрической коррекции анатомических объектов по данным КТ/МРТ.">
+                                Building highly GPU-optimized heterogeneous C++ libraries for autosegmentation, 3D reconstruction, and automatic internal organ geometry correction using CT/MRI scans.
+                        </li>
+                        <li class="lang-content"
+                            data-en="Deployed specialized neural network architectures including U-Net and SegResNet variations for automated volumetric analysis."
+                            data-ru="Применение специализированных нейросетевых архитектур (U-Net, SegResNet) для автоматизированного волюметрического анализа.">
+                                Deployed specialized neural network architectures including U-Net and SegResNet variations for automated volumetric analysis.
+                        </li>
+                    </ul>
+                </div>
+                <div class="media-block">
+                    <img src="slide8_ribs.jpg" alt="3D imaging and CT reconstructions">
+                    <!-- Combined the classes into one attribute and fixed the quotes -->
+                    <div class="media-caption lang-content"
+                         data-en="Fig 2. 3D mapping and CT reconstructions."
+                         data-ru="Рис 2. Трёхмерная реконструкция по данным КТ.">
+                        Fig 2. 3D mapping and CT reconstructions.
+                    </div>
+                </div>
+
+            </div>
+
+        <section id="contact">
+            <h2 class="lang-content"
+                data-en="Project Inquiries"
+                data-ru="Управление проектами">Project Inquiries</h2>
+
+            <div class="contact-card" style="background: #f9f9f9; padding: 15px; border-left: 4px solid #0066cc; margin-top: 15px;">
+                <ul class="contact-list" style="list-style: none; padding-left: 0; margin: 0;">
+                    <li>
+                        <strong class="lang-content" data-en="Operational Email:" data-ru="Рабочий Email:">Operational Email:</strong>
+                        <a href="mailto:myworldtoosmall@gmail.com" style="color: #0066cc; font-family: monospace; font-size: 1.1em; font-weight: bold;">myworldtoosmall@gmail.com</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <span class="lang-content"
+              data-en="&copy; 2026 Applied Mathematician & Computational Physicist. All rights reserved."
+              data-ru="&copy; 2026 Прикладная математика и вычислительная физика. Все права защищены.">
+            &copy; 2026 Applied Mathematician & Computational Physicist. All rights reserved.
+        </span>
+    </footer>
+
+    <!-- JavaScript Toggle Placeholder (Step 3) -->
+    <script>
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            const btn = document.getElementById('lang-toggle');
+            const elements = document.querySelectorAll('.lang-content');
+
+            if (currentLang === 'en') {
+                currentLang = 'ru';
+                btn.textContent = 'ENG';
+                document.documentElement.lang = 'ru';
+                elements.forEach(el => {
+                    el.innerHTML = el.getAttribute('data-ru');
+                });
+            } else {
+                currentLang = 'en';
+                btn.textContent = 'РУС';
+                document.documentElement.lang = 'en';
+                elements.forEach(el => {
+                    el.innerHTML = el.getAttribute('data-en');
+                });
+            }
+        }
+    </script>
+</body>
+</html>
